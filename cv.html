@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kirill Zvonov — CV</title>
+  <meta name="description"
+    content="Kirill Zvonov, Lead Backend Engineer in Porto. Ruby on Rails, PostgreSQL, GCP/AWS. 10 years building software.">
+  <link rel="canonical" href="https://kzvonov.work/cv.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Kirill Zvonov — CV">
+  <meta property="og:description"
+    content="Kirill Zvonov, Lead Backend Engineer in Porto. Ruby on Rails, PostgreSQL, GCP/AWS. 10 years building software.">
+  <meta property="og:url" content="https://kzvonov.work/cv.html">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <script>try { if (localStorage.theme) document.documentElement.dataset.theme = localStorage.theme } catch { }</script>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@hotwired/stimulus@3.2.2/dist/stimulus.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked@18/lib/marked.umd.js"></script>
+  <script src="app.js"></script>
+</head>
+
+<body class="layout">
+  <header>
+    <a href="./">← back</a>
+    <button onclick="print()">save pdf</button>
+    <button data-controller="theme" data-action="theme#toggle">theme</button>
+  </header>
+
+  <main class="cv" data-controller="cv">loading…</main>
+</body>
+
+</html>

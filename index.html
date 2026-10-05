@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kirill Zvonov — Software Engineer</title>
+  <meta name="description"
+    content="Kirill Zvonov, Lead Backend Engineer in Porto. Ruby on Rails, PostgreSQL, AWS. 10 years building software.">
+  <link rel="canonical" href="https://kzvonov.work/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Kirill Zvonov — Software Engineer">
+  <meta property="og:description"
+    content="Kirill Zvonov, Lead Backend Engineer in Porto. Ruby on Rails, PostgreSQL, AWS. 10 years building software.">
+  <meta property="og:url" content="https://kzvonov.work/">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <script>try { if (localStorage.theme) document.documentElement.dataset.theme = localStorage.theme } catch { }</script>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@hotwired/stimulus@3.2.2/dist/stimulus.umd.js"></script>
+  <script src="app.js"></script>
+</head>
+
+<body>
+  <main class="hero">
+    <h1 class="rotator" data-controller="rotator" data-rotator-phrases-value='[
+      "Hey, it is Kirill 👋",
+      "こんにちは、キリルです🙂‍↕️",
+      "Building software since 2016",
+      "2016年からソフトウェアを開発しています",
+      "Now leading backend at SWEAT"
+    ]'></h1>
+
+    <ul class="facts">
+      <li>Kirill Zvonov</li>
+      <li><span data-controller="age" data-age-from-value="1996-11-16"></span> y.o.</li>
+      <li>Porto, Portugal</li>
+    </ul>
+
+    <nav class="links">
+      <a href="cv.html">cv.html</a>
+      <a href="cv.html?print">cv.pdf</a>
+      <a href="cv.md">cv.md</a>
+      <a href="https://www.linkedin.com/in/kzvonov/" target="_blank" rel="noopener noreferrer">linkedin</a>
+      <button data-controller="theme" data-action="theme#toggle">theme</button>
+    </nav>
+  </main>
+</body>
+
+</html>
