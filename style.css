@@ -4,6 +4,7 @@
   --muted: #6f665c;
   --line: #ebe5da;
   --accent: #d6157a;
+  --accent-2: #14110f;
   color-scheme: light;
 }
 
@@ -14,6 +15,7 @@
     --muted: #a8a29e;
     --line: #292524;
     --accent: #f472b6;
+    --accent-2: #ffffff;
     color-scheme: dark;
   }
 }
@@ -24,6 +26,7 @@
   --muted: #a8a29e;
   --line: #292524;
   --accent: #f472b6;
+  --accent-2: #ffffff;
   color-scheme: dark;
 }
 
@@ -147,8 +150,9 @@ button:hover {
 }
 
 .cv em {
-  color: var(--muted);
+  color: var(--accent-2);
   font-style: normal;
+  font-weight: 600;
 }
 
 .cv ul {
@@ -212,6 +216,7 @@ button:hover {
     --muted: #555;
     --line: #ccc;
     --accent: #000;
+    --accent-2: #000;
     color-scheme: light;
   }
 

@@ -44,8 +44,9 @@ app.register("theme", class extends Stimulus.Controller {
 
 app.register("cv", class extends Stimulus.Controller {
   async connect() {
-    const md = await (await fetch("cv.md")).text()
+    const md = await (await fetch("data/cv.md")).text()
     this.element.innerHTML = marked.parse(md)
+    this.element.querySelectorAll("a[href^='http']").forEach(a => Object.assign(a, { target: "_blank", rel: "noopener" }))
     this.element.querySelectorAll("h3").forEach(h => this.collapse(h))
     addEventListener("beforeprint", () => this.element.querySelectorAll("details").forEach(d => d.open = true))
     if (new URLSearchParams(location.search).has("print")) window.print()
