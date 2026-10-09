@@ -142,11 +142,55 @@ button:hover {
   color: var(--muted);
 }
 
+.cv details {
+  display: flow-root;
+  margin-top: 0.7rem;
+}
+
 .cv summary {
-  font-weight: 600;
+  list-style: none;
   font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: .5rem;
   cursor: pointer;
-  margin-top: 1rem;
+}
+
+.cv summary::-webkit-details-marker {
+  display: none;
+}
+
+.cv summary::before {
+  content: "❯";
+  display: inline-block;
+  width: 1rem;
+  margin-right: .25rem;
+  line-height: 1;
+  text-align: center;
+  font-size: .75em;
+  color: var(--muted);
+  transition: transform .2s;
+}
+
+.cv details[open]>summary::before {
+  transform: rotate(90deg);
+}
+
+.cv details:not(:has(> :not(summary)))>summary {
+  cursor: default;
+  pointer-events: none;
+}
+
+.cv details:not(:has(> :not(summary)))>summary::before {
+  content: "•";
+  transform: none;
+}
+
+.cv summary em {
+  display: block;
+  margin-left: 1.25rem;
+  font-size: .875rem;
+  font-weight: 400;
+  color: var(--muted);
 }
 
 .cv em {
@@ -157,6 +201,14 @@ button:hover {
 
 .cv ul {
   padding-left: 1.25rem;
+}
+
+.cv details> :not(summary) {
+  margin-left: 1.25rem;
+}
+
+.cv li+li {
+  margin-top: .4rem;
 }
 
 @media (max-width: 64rem) {
@@ -206,7 +258,7 @@ button:hover {
 @media print {
   @page {
     size: A4;
-    margin: 16mm;
+    margin: 12mm 15mm;
   }
 
   :root[data-theme],
@@ -223,19 +275,49 @@ button:hover {
   .layout {
     padding: 0;
     max-width: none;
-    font-size: 11pt;
+    font-size: 10pt;
+    line-height: 1.4;
     display: block;
+  }
+
+  .cv h1 {
+    font-size: 18pt;
+  }
+
+  .cv h2 {
+    margin: 10pt 0 4pt;
+    font-size: 8.5pt;
+  }
+
+  .cv details {
+    margin-top: 0;
+  }
+
+  .cv summary {
+    font-size: 11pt;
+    margin: 6pt 0 2pt;
+  }
+
+  .cv li+li {
+    margin-top: 0;
+  }
+
+  .cv p,
+  .cv ul {
+    margin: 4pt 0;
+  }
+
+  .cv summary em {
+    float: right;
+    margin-left: 0;
+    font-size: 10pt;
   }
 
   header {
     display: none;
   }
 
-  .cv summary {
-    list-style: none;
-  }
-
-  .cv summary::-webkit-details-marker {
+  .cv summary::before {
     display: none;
   }
 }
