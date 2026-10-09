@@ -108,6 +108,11 @@ button:hover {
   min-height: 2lh;
 }
 
+h1.rotator {
+  display: flex;
+  align-items: flex-end;
+}
+
 .rotator.hidden {
   opacity: 0;
 }
