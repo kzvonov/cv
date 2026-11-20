@@ -260,7 +260,15 @@ h1.rotator {
   }
 }
 
+.print-only {
+  display: none;
+}
+
 @media print {
+  .print-only {
+    display: inline;
+  }
+
   @page {
     size: A4;
     margin: 12mm 15mm;
@@ -318,7 +326,8 @@ h1.rotator {
     font-size: 10pt;
   }
 
-  header {
+  header,
+  .web-only {
     display: none;
   }
 

@@ -47,9 +47,22 @@ app.register("cv", class extends Stimulus.Controller {
     const md = await (await fetch("data/cv.md")).text()
     this.element.innerHTML = marked.parse(md)
     this.element.querySelectorAll("a[href^='http']").forEach(a => Object.assign(a, { target: "_blank", rel: "noopener" }))
+    this.splitContacts(this.element.querySelector("h1 + p"))
     this.element.querySelectorAll("h3").forEach(h => this.collapse(h))
     addEventListener("beforeprint", () => this.element.querySelectorAll("details").forEach(d => d.open = true))
     if (new URLSearchParams(location.search).has("print")) window.print()
+  }
+
+  // Wrap each " · " item in a span. Web links get a plain-text twin for print (PDF links don't work).
+  splitContacts(line) {
+    if (!line) return
+    line.innerHTML = line.innerHTML.split(" · ").map((part, i) => {
+      const sep = i ? " · " : ""
+      const href = part.match(/href="(http[^"]+)"/)?.[1]
+      if (!href) return `<span>${sep}${part}</span>`
+      const text = href.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")
+      return `<span class="web-only">${sep}${part}</span><span class="print-only">${sep}${text}</span>`
+    }).join("")
   }
 
   collapse(heading) {
